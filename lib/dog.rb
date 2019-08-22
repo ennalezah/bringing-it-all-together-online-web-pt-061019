@@ -47,12 +47,11 @@ class Dog
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)[0]
     # binding.pry
     if !dog
-      new_dog = self.create(name: name, breed: breed)
+      self.create(name: name, breed: breed)
     else
       self.find_by_name(name)
       # new_dog = self.new_from_db(dog)
     end
-    new_dog
   end
   
   def update
